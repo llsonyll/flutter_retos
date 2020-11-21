@@ -94,6 +94,7 @@ class MealItem extends StatelessWidget {
 }
 
 class StaggeredDualView extends StatelessWidget {
+  final double percentDesnivel;
   final IndexedWidgetBuilder itemBuilder;
   final int itemCount;
   final double spacing;
@@ -103,7 +104,8 @@ class StaggeredDualView extends StatelessWidget {
       @required this.itemBuilder,
       @required this.itemCount,
       this.spacing = 0.0,
-      this.aspectRatio = 0.5})
+      this.aspectRatio = 0.5,
+      this.percentDesnivel = 0.5})
       : super(key: key);
 
   @override
@@ -128,7 +130,8 @@ class StaggeredDualView extends StatelessWidget {
           ),
           /* itemBuilder: itemBuilder, */
           itemBuilder: (context, index) => Transform.translate(
-            offset: Offset(0.0, index.isOdd ? itemHeight * 0.5 : 0.0),
+            offset:
+                Offset(0.0, index.isOdd ? itemHeight * percentDesnivel : 0.0),
             child: itemBuilder(context, index),
           ),
           itemCount: itemCount,

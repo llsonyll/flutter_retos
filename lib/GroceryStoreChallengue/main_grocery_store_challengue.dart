@@ -3,7 +3,7 @@ import 'package:flutter_retos/GroceryStoreChallengue/grocery_provider.dart';
 import 'package:flutter_retos/GroceryStoreChallengue/grocery_store_bloc.dart';
 import 'package:flutter_retos/GroceryStoreChallengue/grocery_store_list.dart';
 
-const _backgroundColor = Color(0xFFF6F5F2);
+const backgroundColor = Color(0xFFF6F5F2);
 const cartBarHeight = 120.0;
 const _panelTransition = Duration(milliseconds: 500);
 
@@ -73,15 +73,15 @@ class _MainGroceryStoreChallengueState
                         right: 0,
                         top: _getTopForRedPanel(bloc.groceryState, size),
                         height: size.height - kToolbarHeight,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(30),
-                              bottomRight: Radius.circular(30),
-                            ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(30),
+                            bottomRight: Radius.circular(30),
                           ),
-                          child: GroceryStoreList(),
+                          child: Container(
+                            color: Colors.red,
+                            child: GroceryStoreList(),
+                          ),
                         ),
                       ),
                       AnimatedPositioned(
@@ -118,7 +118,7 @@ class GroceryAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: _backgroundColor,
+      color: backgroundColor,
       child: Row(
         children: [
           BackButton(
