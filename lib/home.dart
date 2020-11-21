@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headline4
-                          .copyWith(color: Colors.red),
+                          .copyWith(color: Colors.black),
                     ),
                     Text('Josep "Nice⌐"',
                         style: Theme.of(context).textTheme.headline6),
@@ -37,14 +37,14 @@ class HomePage extends StatelessWidget {
                   children: [
                     ListTile(
                       onTap: () {
-                        Navigator.of(context).pushNamed('reto_1');
+                        Navigator.of(context).pushNamed('GroceryChallengue');
                       },
                       title: Text(
-                        'Reto 1',
+                        'Reto 1 - Grocery Store',
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1
-                            .copyWith(color: Colors.purpleAccent),
+                            .copyWith(color: Colors.white),
                       ),
                       subtitle: Text(
                         'Grocery Challengue - animations(drag)',
@@ -53,10 +53,35 @@ class HomePage extends StatelessWidget {
                             .caption
                             .copyWith(color: Colors.white),
                       ),
-                      tileColor: Colors.purple,
+                      tileColor: Colors.green[800],
                       trailing: Icon(
                         Icons.ac_unit,
-                        color: Colors.purpleAccent,
+                        color: Colors.white,
+                        size: 50,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('StaggeredDualView');
+                      },
+                      title: Text(
+                        'Reto 2 -> StaggeredDualView | Flutter Custom Widget',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            .copyWith(color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        '28 ago. 2020 - Diegoveloper',
+                        style: Theme.of(context)
+                            .textTheme
+                            .caption
+                            .copyWith(color: Colors.white),
+                      ),
+                      tileColor: Colors.blue,
+                      trailing: Icon(
+                        Icons.ac_unit,
+                        color: Colors.white,
                         size: 50,
                       ),
                     ),
