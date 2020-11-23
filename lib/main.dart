@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_retos/GroceryStoreChallengue/main_grocery_store_challengue.dart';
 import 'package:flutter_retos/StaggeredDualView/main_staggered_dual_view.dart';
+import 'package:flutter_retos/TravelPhotosConcept/main_travel_photos.dart';
 import 'package:flutter_retos/home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,6 +26,8 @@ class MyApp extends StatelessWidget {
         'GroceryChallengue': (BuildContext context) =>
             MainGroceryStoreChallengue(),
         'StaggeredDualView': (BuildContext context) => MainStaggeredDualView(),
+        'TravelPhotosConcept': (BuildContext context) =>
+            MainTravelPhotosConcept(),
       },
       initialRoute: 'home',
     );

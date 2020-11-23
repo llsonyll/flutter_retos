@@ -23,10 +23,19 @@ class GroceryStoreList extends StatelessWidget {
           final producto = bloc.productos[index];
           return GestureDetector(
             onTap: () {
-              Navigator.of(context).push(PageRouteBuilder(
+              Navigator.of(context).push(
+                PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 900),
                   pageBuilder: (context, animation, _) => FadeTransition(
-                      child: GroceryProductDetails(producto: producto),
-                      opacity: animation)));
+                      child: GroceryProductDetails(
+                        producto: producto,
+                        onProductAdd: () {
+                          bloc.addProduct(producto);
+                        },
+                      ),
+                      opacity: animation),
+                ),
+              );
             },
             child: Card(
               shape: RoundedRectangleBorder(

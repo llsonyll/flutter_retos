@@ -85,6 +85,31 @@ class HomePage extends StatelessWidget {
                         size: 50,
                       ),
                     ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('TravelPhotosConcept');
+                      },
+                      title: Text(
+                        'Reto 3 -> Travel Photos Concept',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            .copyWith(color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        'Diegoveloper',
+                        style: Theme.of(context)
+                            .textTheme
+                            .caption
+                            .copyWith(color: Colors.white),
+                      ),
+                      tileColor: Colors.blue,
+                      trailing: Icon(
+                        Icons.ac_unit,
+                        color: Colors.white,
+                        size: 50,
+                      ),
+                    ),
                   ],
                 ),
               ),
