@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_retos/GroceryStoreChallengue/main_grocery_store_challengue.dart';
+import 'package:flutter_retos/SocialShareButton/mainSocialShareButton.dart';
 import 'package:flutter_retos/StaggeredDualView/main_staggered_dual_view.dart';
 import 'package:flutter_retos/TravelPhotosConcept/main_travel_photos.dart';
 import 'package:flutter_retos/home.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         'StaggeredDualView': (BuildContext context) => MainStaggeredDualView(),
         'TravelPhotosConcept': (BuildContext context) =>
             MainTravelPhotosConcept(),
+        'SocialShareButton': (BuildContext context) => MainSocialShareButton(),
       },
       initialRoute: 'home',
     );

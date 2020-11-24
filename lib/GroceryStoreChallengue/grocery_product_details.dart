@@ -67,6 +67,7 @@ class _GroceryProductDetailsState extends State<GroceryProductDetails> {
                   SizedBox(height: 18),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
                         decoration: BoxDecoration(
