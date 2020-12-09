@@ -14,7 +14,6 @@ class _MainBounceTabBarState extends State<MainBounceTabBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      backgroundColor: Colors.redAccent,
       appBar: AppBar(
         title: Text(
           'Bounche Tab Bar',
@@ -26,10 +25,10 @@ class _MainBounceTabBarState extends State<MainBounceTabBar> {
       body: IndexedStack(
         index: _currentIndex,
         children: [
-          Container(color: Colors.red),
-          Container(color: Colors.yellow),
-          Container(color: Colors.blue),
-          Container(color: Colors.green),
+          Container(color: Colors.redAccent),
+          Container(color: Colors.yellowAccent),
+          Container(color: Colors.blueAccent),
+          Container(color: Colors.greenAccent),
         ],
       ),
       bottomNavigationBar: BounceTabBar(
@@ -63,7 +62,7 @@ class BounceTabBar extends StatefulWidget {
 
   final Color backGroundColor;
   final List<Widget> items;
-  /* valor que cambia ? */
+  /* valor que cambia */
   final ValueChanged<int> onTabChanged;
   /* INDEX INICIAL */
   final int initialValue;
