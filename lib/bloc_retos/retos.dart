@@ -40,12 +40,26 @@ const List<Reto> retos = [
     background: Colors.purple,
   ),
   Reto(
+    name: 'Reto 4 => BounceTapBar',
+    description: 'BottomAppBar > Animated',
+    icon: Icons.account_balance_wallet,
+    route: 'BounceTabBar',
+    background: Colors.amber,
+  ),
+  Reto(
+    name: 'Reto 5 => JWT > MongoDB > NodeJS > SharedPreferences',
+    description: 'JWT para SedaApp',
+    icon: Icons.map_outlined,
+    route: 'JWTlogin',
+    background: Colors.red,
+  ),
+  /* Reto(
     name: 'Reto 4 => QRScanner, GoogleMaps, SQLite',
     description: 'Scan QR code and Maps',
     icon: Icons.map_outlined,
     route: 'QrScanner',
     background: Colors.orange,
-  ),
+  ), */
 
   /* Reto(
     name: 'Reto 5 => LinkedInUI',

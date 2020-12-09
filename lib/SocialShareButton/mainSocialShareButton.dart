@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const backGroundColors = [
   Color(0XFF8122BF),
@@ -8,6 +9,19 @@ const backGroundColors = [
 
 class MainSocialShareButton extends StatelessWidget {
   const MainSocialShareButton({Key key}) : super(key: key);
+
+  static String flutter = 'https://flutter.dev';
+  static String google = 'https://www.google.com';
+  static String diario = 'https://www.wow-colombia.com';
+  static String reactiva = 'https://www.reactiva-peru.com';
+
+  _launchUrl(url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +36,26 @@ class MainSocialShareButton extends StatelessWidget {
           body: Center(
             child: SocialShareButton(
               items: [
-                IconButton(icon: Icon(Icons.mediation), onPressed: null),
-                IconButton(icon: Icon(Icons.padding), onPressed: null),
-                IconButton(icon: Icon(Icons.qr_code), onPressed: null),
-                IconButton(icon: Icon(Icons.map_rounded), onPressed: null),
+                IconButton(
+                    icon: Icon(Icons.mediation),
+                    onPressed: () {
+                      _launchUrl(flutter);
+                    }),
+                IconButton(
+                    icon: Icon(Icons.padding),
+                    onPressed: () {
+                      _launchUrl(google);
+                    }),
+                IconButton(
+                    icon: Icon(Icons.qr_code),
+                    onPressed: () {
+                      _launchUrl(diario);
+                    }),
+                IconButton(
+                    icon: Icon(Icons.map_rounded),
+                    onPressed: () {
+                      _launchUrl(reactiva);
+                    }),
               ],
               buttonLabel: 'SHARE',
             ),

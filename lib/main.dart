@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_retos/BounceTabBar/main_bounce_tab_bar.dart';
 import 'package:flutter_retos/GroceryStoreChallengue/main_grocery_store_challengue.dart';
 import 'package:flutter_retos/LinkedIn/main_linked_in.dart';
 import 'package:flutter_retos/SocialShareButton/mainSocialShareButton.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_retos/TravelPhotosConcept/main_travel_photos.dart';
 import 'package:flutter_retos/home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'FlutterJWT/mainJWTLogin.dart';
 import 'QrScanner/MainQrScanner.dart';
 
 main(List<String> args) {
@@ -35,6 +37,8 @@ class MyApp extends StatelessWidget {
         'SocialShareButton': (BuildContext context) => MainSocialShareButton(),
         'LinkedInUI': (BuildContext context) => MainLinkedIn(),
         'QrScanner': (BuildContext context) => MainQrScanner(),
+        'JWTlogin': (BuildContext context) => MainJWTLogin(),
+        'BounceTabBar': (BuildContext context) => MainBounceTabBar(),
       },
       initialRoute: 'home',
     );

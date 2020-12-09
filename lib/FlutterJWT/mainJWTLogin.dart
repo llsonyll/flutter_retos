@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'login.dart';
+import 'UI/listProducts.dart';
+import 'UI/login.dart';
 
 class MainJWTLogin extends StatelessWidget {
   const MainJWTLogin({Key key}) : super(key: key);
@@ -9,77 +10,102 @@ class MainJWTLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'App NodeJS MongoDB',
       theme: ThemeData(),
-      home: HomePage(),
+      home: HomePWT(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
+class HomePWT extends StatefulWidget {
+  const HomePWT({Key key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePWTState createState() => _HomePWTState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePWTState extends State<HomePWT> {
   SharedPreferences sharedPreferences;
+
+  @override
+  void initState() {
+    super.initState();
+    checkLoginStatus();
+  }
 
   checkLoginStatus() async {
     sharedPreferences = await SharedPreferences.getInstance();
     if (sharedPreferences.getString("token") == null) {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (BuildContext context) => Login()),
+          MaterialPageRoute(builder: (BuildContext context) => LoginPWT()),
           (Route<dynamic> route) => false);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white60,
-      appBar: AppBar(
-        title: Text(
-          'JWT LOGIN',
-          style: Theme.of(context).textTheme.headline6,
-        ),
-        actions: [
-          FlatButton(
-            onPressed: () {
-              sharedPreferences.clear();
-              sharedPreferences.commit();
-              Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (BuildContext context) => Login()),
-                  (Route<dynamic> route) => false);
-            },
-            child: Text('Log Out'),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'JWT LOGIN',
+            style: Theme.of(context)
+                .textTheme
+                .headline6
+                .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-        ],
-      ),
-      body: Center(
-        child: Text('Login'),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            UserAccountsDrawerHeader(
-              accountEmail: Text('sony_s07@hotmail.es'),
-              accountName: Text('Josep Jairo'),
-            ),
-            ListTile(
-              title: const Text('Inicio'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Text('Medio'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Text('Fin'),
-              onTap: () {},
+          centerTitle: true,
+          actions: [
+            FlatButton(
+              onPressed: () {
+                sharedPreferences.clear();
+                /* sharedPreferences.commit(); */
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => LoginPWT()),
+                    (Route<dynamic> route) => false);
+              },
+              child: Text(
+                'Log Out',
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2
+                    .copyWith(color: Colors.cyanAccent),
+              ),
             ),
           ],
+        ),
+        body: Center(
+          child: Text('Login'),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              UserAccountsDrawerHeader(
+                accountEmail: Text('sony_s07@hotmail.es'),
+                accountName: Text('Josep Jairo'),
+              ),
+              ListTile(
+                title: const Text('Inicio'),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => LoginPWT()));
+                },
+              ),
+              ListTile(
+                title: const Text('Productos'),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => ListProducts()));
+                },
+              ),
+              ListTile(
+                title: const Text('Fin'),
+                onTap: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );
